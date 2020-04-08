@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+
+<html>
+	<head>
+	
+		<meta charset="utf-8">
+		
+		<title>Test page</title>
+		
+		<link rel="shortcut icon" type="image/x-icon" href="" />
+		
+		<link rel="stylesheet" type="text/css" href="2. css/style1.css">
+		<link rel="" type="" href="">
+		<link rel="" type="" href="">
+		
+		<!-- for ajax-->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+		<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+		
+		<script src="3. js/java1.js"></script>
+		<script src=""></script>
+		<script src=""></script>
+	
+	</head>
+	
+	<body id="body1" class="body">
+		
+		<div id="div1" class="divA" > 
+		
+			<button id="button1" class="" onclick="func1()" style="width: 25%; height: 50%; border-radius: 40px;">Создать фильтер</button>
+		
+			<button id="button2" class="" onclick="func2()" style="width: 25%; height: 50%; border-radius: 40px;">Удалить фильтер</button>
+
+			<button id="button3" class="" onclick="func31(id)" style="width: 25%; height: 50%; border-radius: 40px;background-color: aquamarine;">Отправить на анализ</button>
+			
+			
+			<script type="text/javascript">
+			
+				
+				
+				function func32(idType, arr1)
+				{
+					//console.log(arr1);//+
+					//console.log(arr1[0]);//+
+					
+					//console.log(JSON.stringify(arr1));
+					
+					/*
+					for (let pair2 of arr1) 
+					{
+						//console.log(`Ключ = ${pair2[0]}, значение = ${pair2[1]}`);
+					}
+					*/
+					
+					
+					//alert(JSON.stringify(arr1));
+					
+					var arrT = new Array();
+					 arrT=JSON.stringify(arr1);
+					
+					
+					
+					//arrT = arr1;
+					
+					//console.log(arr1[0]);//+
+					//console.log(arrT);//+
+					//console.log(arrT[2]);//+
+
+					//idType;
+					
+					$.ajax({
+						url: '../4. php/index1.php',
+						method: 'GET',
+						dataType: 'html',//'html' 'json'
+						data: {text: 'Привет мир', ID: idType, 'data': arrT}, //ID: idType
+						success: function(Response){
+							//alert(Response);
+							var elem=document.getElementById("div3");
+							elem.innerHTML=Response;}
+					});
+				}
+				
+				function func33(id, Container)
+				{
+					//2. Требуется создать Ассоциативный массив " ключ: значение, ключ (Имя параметра): значение(значение параметра), /...". И передать массив на сервер.
+					
+					
+					var array1 = new Map();
+					
+					var masL = new Array();
+					
+					var obj = new Object;
+					
+					var arrayS = new Array;
+					
+					for(indext=0; indext < Container.length; indext++)
+					{
+						var Param = Container[indext].firstChild.nextSibling.value;
+						var Znach = Container[indext].lastChild.value;
+						
+						//console.log(Param);
+						
+						//console.log(Znach);
+						
+						var arrP = new Map();
+						
+						arrP.set(indext, Param, Znach);
+						//console.log(arrP);
+						
+						arrayS.push(Param);
+						arrayS.push(Znach);
+						
+						//arrayS = arrayS +  + ":" + Znach + ";";
+						
+						//console.log(arrayS);
+						
+						//alert(arrayS);//+
+						
+						
+						
+						/*
+						for (let pair of arrP.entries())
+						{
+							// pair - это массив [key, values]
+							console.log(pair[0]); // ключ
+							console.log(pair[1]); // значение
+							console.log(`Ключ = ${pair[0]}, значение = ${pair[1]}`);
+						}
+						*/
+						
+						/*
+						var arrW = new Map();
+						
+						arrW = arrP + arrP;
+						
+						//console.log(arrW);
+						
+						//console.log(arrP);//+
+						
+						for (let pair of arrP) //+
+						{
+							//console.log(`Ключ = ${pair[0]}, значение = ${pair[1]}`);
+						}
+						*/
+						
+						/*
+						arrP.forEach(function(value,key) 
+						{
+							console.log('key = ' + key +', value = ' + value);    
+						});
+						*/
+						
+						//arrP; //+
+						
+						//console.log(arrP);//+
+						
+						/*
+						function funcMap(arrP)
+						{
+							//console.log(arrP);
+						
+							let obj = {};
+						
+							arrP.forEach(function(value, key){obj[key] = value;});
+						
+							return obj;
+						}
+						
+						var masT =JSON.stringify(funcMap(arrP));
+						
+						array1 = array1 + arrW;
+						
+						var obj2 = funcMap(arrP);
+						var obj = funcMap(arrP);
+						
+						obj3 = Object.assign(obj, obj2);
+						
+						
+						console.log(obj);
+						*/
+						
+						//masL = masL + " / " + masT;
+						//console.log(masL);
+						
+						//console.log(masR);
+						/*
+						var masR = new Array();
+						
+						masR = masR.concat(masT);
+						
+						console.log(masR);
+						*/
+						
+						
+						
+					}
+					
+						//console.log(obj);
+						
+						//console.log(masL);//+
+						
+						//alert();
+						
+						//func32(id, masL);//+
+					
+					//alert(arrP);
+					
+					//alert(id);
+					
+					///alert(arrP.lenght);
+					
+					//console.log(arrP);//+
+					
+					/*
+					function funcMap(array1)
+					{
+						//console.log(array1);
+						
+						let obj = {};
+						
+						array1.forEach(function(value, key){obj[key] = value;});
+						
+						return obj;
+					}
+					
+					
+					//console.log(JSON.stringify(funcMap(array1)));
+					
+					var masT = JSON.stringify(funcMap(array1));
+					
+					//console.log(JSON.stringify(array1));
+					
+					//alert(masT);
+					*/
+					//alert(arrayS);
+					
+					func32(id, arrayS);
+				
+				}
+				
+				function func31(id) //(На вход подается id) Функция для проверки наличия галочки у контейнера.
+				{
+					//++i;// Обязатьльно увеличить индекс окна.
+					var MasCheckboxS=document.getElementsByClassName('checkboxCLass');
+					
+					var MasCheckboxsTrue = new Array();
+				
+					var L1=MasCheckboxS.length;//Длина массива всех Checkbox с class="checkboxCLass"
+				
+					//alert("Колическто чекбоксев: " + L1);
+					
+					for(index = 0; index < MasCheckboxS.length; index++)//Проходим все checkbokS и выявляем те, у которых есть галочка.
+					{
+						//alert(MasCheckboxS[index].id);
+						
+						//alert(MasCheckboxS[index].checked);//Проверка наличия галочки у чекбокса.
+						
+						if(MasCheckboxS[index].checked == true)
+						{
+							MasCheckboxsTrue.push(MasCheckboxS[index]);
+							
+							//alert(MasCheckboxsTrue.length);//Количество выделенных элементов в отдельный массив.
+							//alert(MasCheckboxsTrue.join(" - "));// Выделеные элементы.
+						
+						}
+						
+					}
+					
+					MasCheckboxsTrue;//Массив с элементами.
+					
+					var MasContainersTrue = new Array();//+
+					
+					for(indexl=0; indexl < MasCheckboxsTrue.length; indexl++)
+					{
+						
+						MasContainersTrue.push(MasCheckboxsTrue[indexl].parentNode);
+						
+						//alert(MasContainersTrue.join(" - "));
+						//alert(MasContainersTrue[indexl].id);
+						
+							//alert(MasContainersTrue[indexl].firstChild.nextSibling.value);
+							
+							/*
+							alert(MasContainersTrue[indexl].firstChild.id);
+							alert(MasContainersTrue[indexl].firstChild.nextSibling.id);
+							alert(MasContainersTrue[indexl].lastChild.id);
+							*/
+							
+							/*
+							alert(MasContainersTrue[indexl].firstChild.checked);
+							alert(MasContainersTrue[indexl].firstChild.nextSibling.value);
+							alert(MasContainersTrue[indexl].lastChild.value);
+							*/
+							
+							if(MasContainersTrue[indexl].firstChild.nextSibling.value == 0)
+							{
+								// Расмотреть считуацию,когда пользователь не указал параметр.
+								//alert("ОШИБКА № 001: Не указан параметр.");
+								delete MasContainersTrue[indexl];
+								
+							}
+							else if(MasContainersTrue[indexl].lastChild.value == 0)
+							{
+								// Расмотреть считуацию,когда пользователь не указал параметр.
+								//alert("ОШИБКА № 002: Не указано значение параметра.");
+								delete MasContainersTrue[indexl];
+							}
+							else
+							{
+								//alert(MasContainersTrue[indexl].id);
+								//alert(MasContainersTrue.join(' - '));
+							}
+							
+							//alert(MasContainersTrue.join(' - '));
+					}
+					
+					MasContainersTrue;//+// Мы создали массив,который содержит только те контейнеры,которые не имеют дефектов.
+					
+					//alert(MasContainersTrue.join(" - "));
+					
+					func33(id, MasContainersTrue);
+				}
+			
+			/*
+			$(document).ready(function(){
+				
+				var Id = $(this).data('id');
+				alert(Id);
+				
+				$('#button3').click(function(){$.ajax({
+					method: 'POST',
+					url:'../4. php/index1.php',
+					data: {'id': Id},
+					success: function(Response){
+						var elem=document.getElementById("text3");
+						elem.value=Response;}
+					});
+				});
+			});
+			*/
+			
+			</script>
+			
+
+		</div>
+		
+		<div id="div2" class="divB">
+			
+			<div id="divConteiner" class="divC" style="position: relative; display: none; margin: 10px; top: ; left: ; width:; height:; ">
+			
+				<input id="checkbox" class="checkboxCLass0" type="checkbox" style="position: relative; top: 2px;">
+				<input id="text1" class="textA" type="text" style="position: relative; left: 1%;">
+				<input id="text2" class="textB" type="text" style="position: relative; left: 3%;">
+			
+			</div>
+			
+			<input id="text3" class="textC" type="text" style="position: fixed; left: 50%; top:8%;">
+		
+		</div>
+		
+		<div id="div3" style="overflow:auto; border-radius: 5px; 	border-color: black; border-width: 1px; border-style: solid; padding-left: 20px;">
+		
+		
+		
+		</div>
+
+	</body>
+
+</html>
